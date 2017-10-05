@@ -120,7 +120,7 @@ where
 
         let potentials = if let Some(ref mut broad) = self.broad {
             // Overridden broad phase, use that
-            let potentials = broad.find_potentials(tree.values());
+            let potentials = broad.find_potentials(tree.values().clone().as_mut_slice());
             tree.reindex_values();
             potentials
                 .iter()
